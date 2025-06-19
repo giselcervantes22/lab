@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ToDo List</title>
+</head>
+<body style="
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    box-sizing: border-box;
+">
+
+    <h1 style="
+        text-align: center;
+        color: white;
+        font-size: 2.5em;
+        margin-bottom: 30px;
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        font-weight: 300;
+    ">Pendientes</h1>
+    
+    <div style="
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        margin-bottom: 20px;
+    ">
+        <div style="
+            display: flex;
+            gap: 10px;
+            margin-bottom: 25px;
+        ">
+            <input 
+                type="text" 
+                id="taskInput" 
+                placeholder="Add a new task"
+                style="
+                    flex: 1;
+                    padding: 15px;
+                    border: 2px solid #e1e5e9;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    outline: none;
+                    transition: border-color 0.3s ease;
+                "
+                onfocus="this.style.borderColor='#667eea'"
+                onblur="this.style.borderColor='#e1e5e9'">
+            <button 
+                id="addTaskBtn"
+                style="
+                    padding: 15px 25px;
+                    background: linear-gradient(45deg, #667eea, #764ba2);
+                    color: white;
+                    border: none;
+                    border-radius: 8px;
+                    font-size: 16px;
+                    font-weight: 600;
+                    cursor: pointer;
+                    transition: transform 0.2s ease, box-shadow 0.2s ease;
+                    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+                "
+                onmouseover="this.style.transform='translateY(-2px)'; this.style.boxShadow='0 6px 20px rgba(102, 126, 234, 0.4)'"
+                onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(102, 126, 234, 0.3)'"
+                onmousedown="this.style.transform='translateY(0)'"
+            >Add Task</button>
+        </div>
+
+        <!-- <input type="text" id="searchInput" placeholder="Search..."> -->
+        <ul 
+            id="taskList"
+            style="
+                list-style: none;
+                padding: 0;
+                margin: 0;
+                min-height: 100px;
+            ">
+            <!-- Tasks will be displayed here -->
+        </ul>
+
+        <button 
+            id="clearCompletedBtn"
+            style="
+                width: 100%;
+                padding: 12px;
+                background: #f8f9fa;
+                color: #6c757d;
+                border: 2px solid #e9ecef;
+                border-radius: 8px;
+                font-size: 14px;
+                font-weight: 500;
+                cursor: pointer;
+                transition: all 0.2s ease;
+                margin-top: 20px;
+            "
+            onmouseover="this.style.background='#e9ecef'; this.style.color='#495057'"
+            onmouseout="this.style.background='#f8f9fa'; this.style.color='#6c757d'"
+        >Clear Completed</button>
+    </div>
+
+</body>
+<script src="./todo_list.js"></script>
+
+<style>
+/* Additional styles for dynamic task items */
+.task-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 4px solid #667eea;
+    transition: all 0.2s ease;
+}
+
+.task-item:hover {
+    background: #e9ecef;
+    transform: translateX(5px);
+}
+
+.task-item.completed {
+    opacity: 0.6;
+    text-decoration: line-through;
+    border-left-color: #28a745;
+}
+
+.task-checkbox {
+    margin-right: 15px;
+    transform: scale(1.2);
+}
+
+.task-text {
+    flex: 1;
+    font-size: 16px;
+    color: #495057;
+}
+
+.task-delete {
+    background: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 12px;
+    transition: background 0.2s ease;
+}
+
+.task-delete:hover {
+    background: #c82333;
+}
+</style>
+</html>
